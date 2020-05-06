@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+
+
+  <ItemGroup>
+    <PackageReference Include="Bootstrap-Table" Version="0.4.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="pokemon.json\items.json" />
+    <Content Remove="pokemon.json\types.json" />
+    <Content Remove="pokemon.json\skills.json" />
+    <Content Remove="Views\Home\sample.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Views\Home\details.cshtml.cs" />
+  </ItemGroup>
+</Project>

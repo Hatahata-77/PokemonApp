@@ -1,0 +1,38 @@
+﻿@model IEnumerable<PokemonApp.Models.TableViewModel>
+@{
+    ViewData["Title"] = "ポケモンアプリ";
+}
+
+<h2>@ViewData["Title"]</h2>
+<div class="table-responsive">
+    <table id="table" class="table">
+        <thead>
+            <tr>
+                <th data-field="no" data-sortable="true" style="width:80px;">@Html.DisplayNameFor(model => model.No)</th>
+                <th data-field="thumnail" data-sortable="true">サムネイル</th>
+                <th data-field="name" data-sortable="true">@Html.DisplayNameFor(model => model.Name)</th>
+                <th data-field="type" data-sortable="true" data-formatter="dateFormatter">@Html.DisplayNameFor(model => model.Type)</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+@section Scripts {
+    <link rel="stylesheet" href="~/lib/bootstrap-table/dist/bootstrap-table.css" />
+    <script src="~/lib/bootstrap-table/dist/bootstrap-table.js" type="text/javascript"></script>
+    <script src="~/lib/bootstrap-table/dist/locale/bootstrap-table-ja-JP.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        // モデルをJsonに変換し、BootstrapTableに読み込ませる
+        $(function () {
+            var table = @Html.Raw(Json.Serialize(Model));
+            $('#table').bootstrapTable({
+                data: table
+            });
+        });
+
+        // 日付Formatter
+        function dateFormatter(value, row, index) {
+            return new Date(value).toLocaleDateString();
+        }
+    </script>
+}
