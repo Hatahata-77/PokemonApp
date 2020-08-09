@@ -11,7 +11,8 @@
                 <th data-field="no" data-sortable="true" style="width:80px;">@Html.DisplayNameFor(model => model.No)</th>
                 <th data-field="thumnail" data-sortable="true">サムネイル</th>
                 <th data-field="name" data-sortable="true">@Html.DisplayNameFor(model => model.Name)</th>
-                <th data-field="type" data-sortable="true" data-formatter="dateFormatter">@Html.DisplayNameFor(model => model.Type)</th>
+                @*<th data-field="type" data-sortable="true" data-formatter="dateFormatter">@Html.DisplayNameFor(model => model.Type)</th>*@
+                <th data-field="type" data-sortable="true"></th>
             </tr>
         </thead>
     </table>
@@ -25,6 +26,7 @@
         // モデルをJsonに変換し、BootstrapTableに読み込ませる
         $(function () {
             var table = @Html.Raw(Json.Serialize(Model));
+            alert(table);
             $('#table').bootstrapTable({
                 data: table
             });

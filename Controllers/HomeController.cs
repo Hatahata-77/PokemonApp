@@ -44,7 +44,8 @@ namespace PokemonApp.Controllers
                     Thumnail = string.Format(@"<img src=""{0}"" onclick=""alert('{1} です。');"" />", "thumbnails/" + json.id.ToString("000") + json.name.english + ".png", json.name.japanese),
                     Name = string.Format(@"<span onclick=""alert('{1} です。');"" >{0}</span>", json.name.english, json.name.japanese),
                     //Name = json.name.english,
-                    Type = string.Format(@"<span onclick=""alert('{1} です。');"" >{0}</span>", string.Join(",", json.type), json.name.japanese),
+                    //Type = string.Format(@"<span onclick=""alert('{1} です。');"" >{0}</span>", string.Join(",", json.type), json.name.japanese),
+                    Type = string.Format(@"<img src=""https://www.pkparaiso.com/imagenes/shuffle/sprites/{0}.png"" />", json.id.ToString("000")),
                     //Type = string.Join(",", json.type)
                 });
             }
